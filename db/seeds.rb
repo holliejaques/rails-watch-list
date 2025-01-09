@@ -7,3 +7,16 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
+
+require 'faker'
+
+Movie.destroy_all
+
+20.times do
+  Movie.create(
+    title: Faker::Movie.title,
+    overview: Faker::Lorem.paragraphs,
+    poster_url: Faker::LoremFlickr.image,
+    rating: Faker::Number.between(from: 1, to: 5)
+  )
+end
