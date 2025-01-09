@@ -16,7 +16,10 @@ Rails.application.routes.draw do
   # get '', to: '#'
   # post '', to: '#'
   # delete
+
+  # create a block so we can nest bookmarks under lists - why there is a do
   resources :lists do
-    resources :bookmarks, only: [:new, :create, :destroy]
+    resources :bookmarks, only: [:new, :create]
   end
+  resources :bookmarks, only: [:destroy]
 end
