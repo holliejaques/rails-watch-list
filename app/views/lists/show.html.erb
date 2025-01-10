@@ -1,10 +1,26 @@
-<h1>Name: <%= @list.name %></h1>
-<%= link_to 'Add a movie', new_list_bookmark_path(@list) %>
+<div class="container py-5">
+  <div class="row">
+    <div class="col-12 col-md-6 offset-lg-3">
+      <div class="bg-danger bg-gradient rounded p-4 shadow">
 
-<ul>
-    <% @list.bookmarks.each do |bookmark| %>
-  <li><%= bookmark.movie.title %></li>
-  <% end %>
-</ul>
+        <h1>LIST NAME: <%= @list.name %></h1>
 
-<%= link_to "Back to all lists", lists_path %>
+            <ul class="mt-3">
+              <% @list.bookmarks.each do |bookmark| %>
+              <li><%= link_to bookmark.movie.title.upcase, list_bookmarks_path(bookmark) %></li>
+                <p>Comment: <%= bookmark.comment %></p>
+              <% end %>
+            </ul>
+
+          <div class="btn btn-dark">
+            <%= link_to 'Add a movie', new_list_bookmark_path(@list) %>
+          </div>
+
+          <div class="btn btn-dark">
+            <%= link_to "Back to all lists", lists_path %>
+          </div>
+
+      </div>
+    </div>
+  </div>
+</div>
