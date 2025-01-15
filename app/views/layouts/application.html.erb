@@ -10,7 +10,8 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body>
+  <body class="background-image" style="background-image: url('<%= image_path "movie_banner.jpg" %>')">
+    <%= render 'shared/navbar' %>
     <%= yield %>
   </body>
 </html>

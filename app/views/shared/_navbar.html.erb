@@ -1,0 +1,11 @@
+<div class="navbar-dark">
+  <%= link_to root_path do %>
+    <%= image_tag "movie_logo.png", alt: "movie logo", class: "logo" %>
+  <% end %>
+
+  <div class="navbar-link">
+    <%= link_to "Home", lists_path %>
+    <%= link_to "New List", new_list_path %>
+  </div>
+
+</div>
